@@ -4,7 +4,7 @@
         <div slot="trigger" role="button" aria-controls="contentIdForA11y2" class="camera-header">
           <b-tooltip label="Điều khiển máy ảnh" type="is-dark" position="is-right">
             <figure class="image is-24x24">
-              <img src="../assets/icons/Camera.svg">
+              <img src="@/assets/icons/Camera.svg">
             </figure>
           </b-tooltip>
         </div>
@@ -40,6 +40,24 @@
           </div>
         </div>  
     </b-collapse>
+
+    <b-modal :active.sync="isCardModalActive" :width="640" scroll="keep">
+        <div class="card">
+            <div class="card-image">
+                <figure v-show="camera.zoom <= 3" class="image is-4by3">
+                    <img src="@/assets/images/column-high-voltage.jpg" alt="Image">
+                </figure>
+                <figure v-show="camera.zoom > 3" class="image is-4by3">
+                    <img src="@/assets/images/column-high-voltage2.jpg" alt="Image">
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="content">
+                    Ảnh sẽ tự động được lưu vào kết quả hành trình 
+                </div>
+            </div>
+        </div>
+    </b-modal>
   </div>
 </template>
 
@@ -53,11 +71,13 @@ export default {
         rotX: 0,
         rotY: 0,
         zoom: 1,
-      }
+      },
+      isCardModalActive: false,
     }
   },
   methods: {
     success() {
+        this.isCardModalActive = true;
         this.$buefy.toast.open({
             message: 'Chụp thành công!',
             type: 'is-success'

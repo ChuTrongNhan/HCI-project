@@ -28,7 +28,7 @@
             <figure class="image is-32x32">
                 <img class="is-rounded" src="../../assets/icons/Avatar.svg">
             </figure>
-            Oh! It's you<b style="color: #7957D5">, Group 3</b>
+            Oh! It's you<b style="color: #7957D5">, KSTN</b>
           </div>
         </template>
     </b-navbar>
@@ -46,7 +46,7 @@ export default {
         },
         {
           name: "Quản lý lịch trình",
-          link: "/unknown"
+          link: "/plan"
         },
         {
           name: "Quản lý payloads",

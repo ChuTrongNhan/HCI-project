@@ -3,20 +3,18 @@
     <div class="g-header">
       <div style="display:flex; justify-content: center; opacity: 0.19">
         <figure class="image is-48x48">
-            <img src="../assets/icons/Photos.svg">
+            <img src="@/assets/icons/Photos.svg">
         </figure>
       </div>
       <div class="g-title">Kết quả thu được sau khi bay</div>
       <div class="g-note">
         Drone đã kết thúc hành trình. Kết quả thu được đã được tự động lưu lại. 
-        Bạn có thể xem chi tiết kết quả thu được của drone trong lần bay này tại 
-        <span style="color: #7957d5">LINK SANG NHÓM KHÁC</span>
       </div>
     </div>
     <div class="gallery">
-      <div v-for="(item, i) in 6" :key="i" class="photo-show">
+      <div v-for="(item, i) in 12" :key="i" class="photo-show">
         <figure class="image is-5by3">
-          <img :src="getImgUrl(i)"  style="object-fit: cover">
+          <img :src="require('@/assets/images/' + i + '.jpg')"  style="object-fit: cover">
         </figure>
       </div>
     </div>

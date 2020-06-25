@@ -1,9 +1,5 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/home">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
     <router-view />
   </div>
 </template>
@@ -73,5 +69,25 @@ export default {
     text-transform: uppercase;
     font-weight: 500;
   }
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #7957d5; 
 }
 </style>

@@ -3,7 +3,7 @@
     <div class="f-header">
       <div style="display:flex; justify-content: center; opacity: 0.19">
         <figure class="image is-48x48">
-            <img src="../assets/icons/Pick.svg">
+            <img src="@/assets/icons/Pick.svg">
         </figure>
       </div>
       <div class="f-title">Chọn hành trình bay</div>
@@ -59,35 +59,42 @@ export default {
   name: 'flying-plan',
   data() {
     const PLAN_LIST = [
-        { id: 1, name: "Untitled", createdDate: "2020-07-01" },
-        { id: 2, name: "Untitled (1)", createdDate: "2020-06-12" },
-        { id: 3, name: "Untitled (2)", createdDate: "2020-05-25" },
-        { id: 4, name: "Untitled (3)", createdDate: "2020-05-01" },
-        { id: 5, name: "Untitled (4)", createdDate: "2020-03-08" },
-        { id: 6, name: "Untitled (5)", createdDate: "2020-03-02" },
-        { id: 7, name: "Untitled (6)", createdDate: "2020-01-14" },
-        { id: 8, name: "Untitled (7)", createdDate: "2019-12-31" },
-        { id: 9, name: "Untitled (8)", createdDate: "2019-10-01" },
+        { id: 1, name: "Kiểm tra đợt 2", area: "Bách Khoa", createdDate: "2020-07-01" },
+        { id: 2, name: "Dựng bản đồ", area: "Bách Khoa", createdDate: "2020-06-12" },
+        { id: 3, name: "Bay thử nghiệm", area: "Hoàn Kiếm", createdDate: "2020-05-25" },
+        { id: 4, name: "Kiểm tra tụ", area: "Hoàng Mai", createdDate: "2020-05-01" },
+        { id: 5, name: "Kiểm tra dây", area: "Long Biên", createdDate: "2020-03-08" },
+        { id: 6, name: "Bay thử nghiệm", area: "Hà Đông", createdDate: "2020-03-02" },
+        { id: 7, name: "Untitled", area: "Cầu Giấy", createdDate: "2020-01-14" },
+        { id: 8, name: "Untitled (2)", area: "Times City", createdDate: "2019-12-31" },
+        { id: 9, name: "Untitled (3)", area: "Bách Khoa", createdDate: "2019-10-01" },
       ];
     const PLAN_COLUMN = [
+      // {
+      //   field: "id",
+      //   label: "ID",
+      //   width: 100,
+      //   centered: true,
+      //   searchable: true,
+      //   sortable: true,
+      // },
       {
-        field: "id",
-        label: "ID",
-        width: 100,
-        centered: true,
+        field: "name",
+        label: "TÊN",
+        width: 180,
         searchable: true,
         sortable: true,
       },
       {
-        field: "name",
-        label: "TÊN LỊCH TRÌNH",
+        field: "area",
+        label: "KHU VỰC",
         width: 180,
         searchable: true,
         sortable: true,
       },
       {
         field: "createdDate",
-        label: "NGÀY TẠO",
+        label: "NGÀY BAY",
         width: 150,
         sortable: true,
       },

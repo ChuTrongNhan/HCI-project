@@ -4,7 +4,7 @@
         <div slot="trigger" role="button" aria-controls="contentIdForA11y2" class="drone-header">
           <b-tooltip label="Điều khiển drone" type="is-dark" position="is-right">
             <figure class="image is-24x24">
-              <img src="../assets/icons/Send.svg">
+              <img src="@/assets/icons/Send.svg">
             </figure>
           </b-tooltip>
         </div>
@@ -18,21 +18,21 @@
 
           <div class="drone-adjust">
             <div>Vị trí tiếp theo</div>
-            <div v-show="countStep<2">Cột điện HGS43245 - 15°11'53.8"N 108°10'19.0"E</div>
-            <div v-show="countStep>=2" style="color: #7957d5">ĐIỂM CUỐI - 15°11'53.8"N 108°10'19.0"E </div>
+            <div v-show="countStep<4">Cột điện HGS43245 - 15°11'53.8"N 108°10'19.0"E</div>
+            <div v-show="countStep>=4" style="color: #7957d5">ĐIỂM CUỐI - 15°11'53.8"N 108°10'19.0"E </div>
           </div>
 
           <div class="drone-buttons">
             <b-button class="drone-button" type="is-primary" icon-right="chevron-double-right" 
                       :loading="isMoving" size="is-small" 
-                      :disabled="countStep>=2 || stopDrone"
+                      :disabled="countStep>=4 || stopDrone"
                       @click="move">
                   Di chuyển đến vị trí tiếp theo
             </b-button>
             <b-button class="drone-button" icon-right="cancel" size="is-small" 
                       :disabled="stopDrone"
                       @click="stop">
-                  Dừng hành trình
+                  Kết thúc hành trình
             </b-button>
           </div>
         </div>  
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import PhotoGallery from "@/components/PhotoGallery.vue";
+import PhotoGallery from "@/components/status/PhotoGallery.vue";
 
 export default {
   name: 'drone-control',
@@ -77,13 +77,14 @@ export default {
           actionText: 'OK',
           queue: false,
       })
+      this.$emit('moveNext');
     },
     stop() {
       this.$buefy.dialog.confirm({
-          title: 'Dừng hành trình',
+          title: 'Kết thúc hành trình',
           message: 'Bạn có chắc chắn muốn <b>dừng hành trình bay</b>? Thao tác này không thể hoàn tác. Sau khi dừng bay drone sẽ bay về vị trí cuối lịch trình.',
-          confirmText: 'Dừng hành trình',
-          cancelText: 'Không dừng hành trình',
+          confirmText: 'Kết thúc',
+          cancelText: 'Không kết thúc',
           type: 'is-danger',
           hasIcon: true,
           onConfirm: () => { 

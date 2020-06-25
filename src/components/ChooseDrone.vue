@@ -1,16 +1,14 @@
 <template>
-  <div id="status-page">
-    <Header/>
+  <div id="choose-page">
     <div class="apage-container">
       <div style="display: flex; flex-direction: column">
-        <div class="apage-title">Trạng thái các drone</div>
         <div class="apage-header">
           <div class="drone-info">
             <span id="drone-info-title" v-if="!(typeof selected === 'undefined') && selected.hasOwnProperty('id')">
               Drone đang chọn:
             </span>
             <span id="drone-info-warning" v-if="(typeof selected === 'undefined') || !selected.hasOwnProperty('id')">
-              Hãy chọn một drone để theo dõi !
+              Hãy chọn một drone cài đặt thông số đầu
             </span>
             <b-taglist v-if="!(typeof selected === 'undefined') && selected.hasOwnProperty('id')" attached>
                 <b-tag type="is-dark">{{selected.id}}</b-tag>
@@ -43,36 +41,19 @@
                 :per-page="6"
                 :hoverable="true"
                 :selected.sync="selected"
-                v-bind:row-class="(row, index) => (row.active === 'Đang bay' && 'is-flying-drone-row') || 'is-inactivate-drone-row'"
               />
             </div>
           </b-collapse>
         </div>
       </div>
-      <is-flying 
-        v-if="!(typeof selected === 'undefined') && selected.hasOwnProperty('active') && selected.active=='Đang bay'"
-        v-bind:selected="selected"
-      />
-      <not-flying
-        v-show="!(typeof selected === 'undefined') && selected.hasOwnProperty('active') && selected.active!='Đang bay'"
-        @start-drone="startDrone"
-        v-bind:selected="selected"
-      />
     </div>
   </div>
 </template>
 
 <script>
-import Header from "@/components/common/Header.vue";
-import IsFlying from "@/components/status/IsFlying.vue";
-import NotFlying from "@/components/status/NotFlying.vue";
-
 export default {
   name: 'status',
   components: {
-    Header,
-    IsFlying,
-    NotFlying,
   },
   props: {
     selectedDrone: {},
@@ -92,12 +73,6 @@ export default {
         label: "TÊN DRONE",
         width: 200,
         searchable: true,
-        sortable: true,
-      },
-      {
-        field: "active",
-        label: "TRẠNG THÁI",
-        width: 140,
         sortable: true,
       },
     ];
@@ -124,16 +99,6 @@ export default {
       activeStep: 0,
     }
   },
-  methods: {
-    startDrone(e) {
-      for (var i in this.DRONE_LIST) {
-        if (this.DRONE_LIST[i].id == e.id) {
-            this.DRONE_LIST[i].active = "Đang bay";
-            break;
-        }
-      }
-    }
-  },
   watch: {
     selected() {
       this.isOpen = false;
@@ -143,7 +108,7 @@ export default {
 </script>
 
 <style lang="scss">
-#status-page {
+#choose-page {
   .apage-container {
     display: flex;
     flex-direction: row;
@@ -154,7 +119,7 @@ export default {
       z-index: 10;
       background: white;
       width: 100%;
-      margin: 15px 95px;
+      margin: 15px 20px 30px;
       padding: 0 20px;
     }
 

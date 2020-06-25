@@ -1,18 +1,15 @@
 <template>
-  <div>
-    <Header/>
-    <div class="apage-container">
+    <div class="apage-container" style="padding: 10px 20px 30px;">
       <div class="apage-head">
-        <div class="apage-title">Quản lý payloads</div>
-        <div class="apage-button">
-          <b-button type="is-primary" @click="confirm">
-              Lưu thông số
-          </b-button>
+        <div style="display:flex; justify-content: center; opacity: 0.19">
+          <figure class="image is-48x48">
+              <img src="@/assets/icons/Param.svg">
+          </figure>
         </div>
+        <div class="apage-title" style="margin: 0">Thiết lập payloads</div>
       </div>
-      <choose-drone/>
       <div class="payload-setting--container">
-        <div class="payload-setting" style="flex: 1">
+        <div class="payload-setting" style="flex: 1;">
           <div class="payload-setting--title">
             <span>Cài đặt máy ảnh</span>
           </div>
@@ -21,7 +18,7 @@
           </div>
           <div class="input-row">
             <figure class="image is-32x32" style="padding: auto">
-                <img src="../assets/icons/Photo2.svg">
+                <img src="@//assets/icons/Photo2.svg">
             </figure>
             <div class="input-name">
               <div>Số lượng ảnh chụp tại một điểm</div>
@@ -40,7 +37,7 @@
           </div>
           <div class="input-row">
             <figure class="image is-32x32" style="padding: auto">
-                <img src="../assets/icons/Connect.svg">
+                <img src="@//assets/icons/Connect.svg">
             </figure>
             <div class="input-name">
               <div>Hướng ảnh khi chụp</div>
@@ -52,7 +49,7 @@
                       type="is-dark"
                       position="is-bottom"
                 >
-                <img v-bind:class="[camera.orientation ? 'inactivated-icon' : 'activated-icon']" src="../assets/icons/Landscape.svg">
+                <img v-bind:class="[camera.orientation ? 'inactivated-icon' : 'activated-icon']" src="@/assets/icons/Landscape.svg">
                 </b-tooltip>
               </figure>
               <figure v-on:click="camera.orientation = true" class="image is-48x48" style="padding: auto">
@@ -61,7 +58,7 @@
                       type="is-dark"
                       position="is-bottom"
                 >
-                  <img v-bind:class="[camera.orientation ? 'activated-icon' : 'inactivated-icon']" src="../assets/icons/Portrait.svg">
+                  <img v-bind:class="[camera.orientation ? 'activated-icon' : 'inactivated-icon']" src="@/assets/icons/Portrait.svg">
                 </b-tooltip>
               </figure>
             </div>
@@ -72,7 +69,7 @@
           </div>
           <div class="input-row">
             <figure class="image is-32x32" style="padding: auto">
-                <img src="../assets/icons/SpeedHigh.svg">
+                <img src="@/assets/icons/SpeedHigh.svg">
             </figure>
             <div class="input-name">
               <div>Tốc độ bay khi quay video</div>
@@ -92,7 +89,7 @@
           </div>
           <div class="input-row">
             <figure class="image is-32x32" style="padding: auto">
-                <img src="../assets/icons/MultimediaDVR.svg">
+                <img src="@/assets/icons/MultimediaDVR.svg">
             </figure>
             <div class="input-name">
               <div>Chất lượng thu video</div>
@@ -125,7 +122,7 @@
             </div>
             <div class="input-row">
               <figure class="image is-32x32" style="padding: auto">
-                  <img src="../assets/icons/Sensor.svg">
+                  <img src="@/assets/icons/Sensor.svg">
               </figure>
               <div class="input-name">
                 <div>Tránh chướng ngại vật</div>
@@ -137,7 +134,7 @@
             </div>
             <div class="input-row">
               <figure class="image is-32x32" style="padding: auto">
-                  <img src="../assets/icons/AdjustHologram.svg">
+                  <img src="@/assets/icons/AdjustHologram.svg">
               </figure>
               <div class="input-name">
                 <div>Tăng cường nhận diện 3D</div>
@@ -161,7 +158,7 @@
             </div>
             <div class="input-row">
               <figure class="image is-32x32" style="padding: auto">
-                  <img src="../assets/icons/Connected.svg">
+                  <img src="@/assets/icons/Connected.svg">
               </figure>
               <div class="input-name">
                 <div>Trạng thái kết nối</div>
@@ -184,7 +181,7 @@
             </div>
             <div class="input-row">
               <figure class="image is-32x32" style="padding: auto">
-                  <img src="../assets/icons/Game.svg">
+                  <img src="@/assets/icons/Game.svg">
               </figure>
               <div class="input-name">
                 <div>Kích hoạt bộ điều khiển</div>
@@ -196,20 +193,14 @@
           </div>
         </div>
       </div>
+      <div class="g-foot" style="margin: auto">
+        <button class="button is-primary" type="button" @click="$parent.close()">OK</button>
     </div>
-  </div>
+    </div>
 </template>
 
 <script>
-import Header from "@/components/common/Header.vue";
-import ChooseDrone from "@/components/ChooseDrone.vue";
-
 export default {
-  name: "payload",
-  components: {
-    Header,
-    ChooseDrone,
-  },
   data() {
     return {
       camera: {
@@ -232,7 +223,7 @@ export default {
     confirm() {
         this.$buefy.dialog.confirm({
             message: 'Bạn đã sẵn sàng lưu lại các thông số này?',
-            cancelText: 'Không',
+            cancelText: 'Không, tôi chưa muốn lưu',
             confirmText: 'Đồng ý',
             onConfirm: () => this.$buefy.toast.open({
               message: 'Đã lưu thành công!',
@@ -262,10 +253,12 @@ export default {
 <style lang="scss" scoped>
 .apage-container {
   padding: 0 75px 45px;
+  background: #f8f8f8;
 
   .apage-head {
-    display: flex;
-    margin: 40px 20px 20px;
+    text-align: center;
+    width: 100%;
+    margin: 20px 0;
   }
 
   .apage-title {
@@ -285,6 +278,7 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 
   .payload-setting {
     border: 1px solid #A89F9F;

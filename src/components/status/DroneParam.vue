@@ -4,7 +4,7 @@
         <div slot="trigger" role="button" aria-controls="contentIdForA11y2" class="param-header">
           <b-tooltip label="Thông số drone" type="is-dark" position="is-right">
             <figure class="image is-24x24">
-              <img src="../assets/icons/Info.svg">
+              <img src="@/assets/icons/Info.svg">
             </figure>
           </b-tooltip>
         </div>

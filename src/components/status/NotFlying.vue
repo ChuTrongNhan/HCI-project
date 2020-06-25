@@ -2,7 +2,7 @@
   <div class="map empty-map">
     <div class="map-warning-card">
       <figure class="image is-96x96 map-warning-image">
-        <img src="../assets/icons/NoFlying.svg">
+        <img src="@/assets/icons/NoFlying.svg">
       </figure>
       <div class="map-warning-message">
         Oops! Drone bạn chọn đang không bay
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import FlyingPlan from "@/components/FlyingPlan.vue";
+import FlyingPlan from "@/components/status/FlyingPlan.vue";
 
 export default {
   name: 'not-flying',

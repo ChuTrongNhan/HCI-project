@@ -45,7 +45,7 @@ export default {
           icon: 'MapDirections.svg',
           name: "Quản lý lịch trình",
           description: "Tạo, xem, điều chỉnh lịch trình bay",
-          link: "/unknown"
+          link: "/plan"
         },
         {
           id: 2,
