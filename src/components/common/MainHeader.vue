@@ -10,13 +10,14 @@
                 Home
               </div>
             </b-navbar-item>
-            <b-navbar-item 
-              v-for="item in items" :key="item.name"
-              tag="router-link" :to="{ path: item.link }"
-              class="hust-dropdown-text"
-            >
-              {{item.name}}
+            <b-navbar-item tag="router-link" :to="{ path: '/home' }" class="hust-dropdown-text">
+              Điều khiển thiết bị bay
             </b-navbar-item>
+            <b-navbar-item href="http://bibiweb.xyz/home.php">Trạm điện và đợt kiểm tra</b-navbar-item>
+            <b-navbar-item href="https://angular-project-51bf8.web.app/login">Quản trị</b-navbar-item>
+            <b-navbar-item href="https://drive.google.com/file/d/14nBDn5-4sz43u-0OnhDohtohhxrm98wZ/view?fbclid=IwAR0rupV7966W6twWeFrOEzrmcaS-WI19A7cihf-CmNWW_VqItsH2D3mw0QU">Báo cáo</b-navbar-item>
+            <b-navbar-item href="https://kewin1807.github.io/">Phát hiện sự cố và thành phần</b-navbar-item>
+            <b-navbar-item href="http://nhom6.now.sh/">Quản lý sự cố</b-navbar-item>
         </template>
 
         <template slot="end">
@@ -32,7 +33,7 @@
 
 <script>
 export default {
-  name: "Header",
+  name: "MainHeader",
   data() {
     return {
       items: [
