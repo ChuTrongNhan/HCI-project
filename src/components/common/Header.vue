@@ -7,7 +7,7 @@
                 padding: 0 15px 0 5px;
                 border-right: 1px solid #d6d6;"
               >
-                Home
+                Trang chủ
               </div>
             </b-navbar-item>
             <b-navbar-item 

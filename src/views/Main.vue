@@ -68,9 +68,9 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 35vh;
+  height: 100vh;
   min-height: 300px;
-  padding-top: 150px;
+  padding-top: 100px;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(121, 87, 213, 0.66)), 
   url(../assets/images/dronewallpaper2.jpg);
   background-repeat:no-repeat;
@@ -78,9 +78,10 @@ export default {
 
   .main-title {
     color: white;
-    font-size: 36px;
+    font-size: 64px;
     text-transform: uppercase;
     font-weight: 800;
+    padding: 75px;
   }
   
   .main-button {
